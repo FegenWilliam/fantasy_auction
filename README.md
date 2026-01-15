@@ -40,7 +40,8 @@ python3 fantasy_auction.py
 ### 4. Results
 - Winner pays their final bid
 - Item's **true worth** is revealed
-- Item is automatically sold for its true worth
+- Regular items are automatically sold for their true worth
+- **Unique Relics** are kept in your collection forever!
 - Profit/loss is calculated and added to your total
 
 ## Item Quality Tiers
@@ -56,6 +57,38 @@ Items range from worthless junk to priceless relics:
 | **Relic** | 4,000-10,000g | 3% | Often **undervalued** - great deals! |
 
 **Key Strategy**: The starting bid can be deceiving! High starting bids don't always mean high value - garbage items are often overpriced, while relics might have surprisingly low starting bids. Pay attention to the flavor text and trust your instincts!
+
+## Unique Relics System
+
+**NEW FEATURE**: 25 legendary artifacts are hidden throughout the game!
+
+**What are Unique Relics?**
+- 25 one-of-a-kind legendary items with special names and lore
+- When you win one, you **keep it forever** (not sold for gold)
+- Each relic can only be found once - when it's gone, it's gone!
+- Collecting relics adds a strategic depth beyond just accumulating gold
+
+**How to Find Them**:
+- During auctions, unique relics are **disguised** with random names (just like other items)
+- Their flavor text contains **subtle hints** using special keywords like:
+  - "ancient", "legendary", "eternal", "timeless"
+  - "infinite", "cosmic", "celestial", "arcane"
+  - "defying", "impossible", "pulsing", "radiating"
+- After winning, the relic's **true identity** is dramatically revealed!
+
+**Strategic Considerations**:
+- Unique relics typically have **low starting bids** relative to their worth (20-60% of value)
+- They don't generate profit when won, but they're priceless collectibles
+- You'll see a counter showing how many relics remain in the world (X/25)
+- Your collection is displayed each day and at the end of the game
+
+**Examples of Unique Relics**:
+- Crown of Ancient Kings
+- Dragon's Heartstone
+- Staff of the Cosmos
+- Amulet of Time
+- Crystal of Pure Magic
+- ...and 20 more waiting to be discovered!
 
 ## NPC Personalities
 
@@ -81,9 +114,12 @@ Each NPC also has a random risk tolerance affecting how much they're willing to 
 - Don't overbid! Profit comes from buying below true worth
 - Watch your gold reserves - going broke means elimination
 - Relics are rare but often underpriced - great opportunities!
+- **Look for hint words in flavor text** - they might reveal unique relics!
+- Unique relics don't add to profit, but they're priceless collectibles
 - Garbage items are common traps with inflated starting bids
 - NPCs don't know true values - use this to your advantage
 - Sometimes passing is the best move
+- Balance gold accumulation with relic hunting for the complete experience!
 
 ## Files
 

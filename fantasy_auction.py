@@ -11,6 +11,161 @@ from generators import (
 )
 
 
+# 25 Unique Relics - one-of-a-kind items that you keep forever
+UNIQUE_RELICS = [
+    {
+        "name": "Crown of Ancient Kings",
+        "description": "A crown that glows with ethereal light, its gemstones pulsing with timeless power.",
+        "worth": 8000,
+        "hint_words": ["ancient", "timeless", "ethereal"]
+    },
+    {
+        "name": "Dragon's Heartstone",
+        "description": "A pulsing red gem radiating warmth, said to contain the essence of a legendary dragon.",
+        "worth": 9500,
+        "hint_words": ["legendary", "essence", "radiating"]
+    },
+    {
+        "name": "Staff of the Cosmos",
+        "description": "A staff with stars swirling within its core, holding the mysteries of the universe.",
+        "worth": 7500,
+        "hint_words": ["mysteries", "universe", "swirling"]
+    },
+    {
+        "name": "Blade of Eternal Frost",
+        "description": "A sword perpetually frozen, its edge sharper than any mortal blade could be.",
+        "worth": 8200,
+        "hint_words": ["eternal", "perpetually", "mortal"]
+    },
+    {
+        "name": "Amulet of Time",
+        "description": "A pendant that ticks like a cosmic clock, its hands moving in impossible directions.",
+        "worth": 9000,
+        "hint_words": ["cosmic", "impossible", "ticks"]
+    },
+    {
+        "name": "Phoenix Feather Quill",
+        "description": "A quill that writes in flames, yet never burns the parchment it touches.",
+        "worth": 6800,
+        "hint_words": ["flames", "never burns", "phoenix"]
+    },
+    {
+        "name": "Mirror of Truth",
+        "description": "A mirror showing more than mere reflections, revealing what lies beneath.",
+        "worth": 7800,
+        "hint_words": ["revealing", "beneath", "more than"]
+    },
+    {
+        "name": "Ring of Whispers",
+        "description": "A ring that murmurs ancient secrets to those who wear it.",
+        "worth": 6500,
+        "hint_words": ["ancient", "secrets", "murmurs"]
+    },
+    {
+        "name": "Orb of Storms",
+        "description": "A sphere crackling with miniature lightning, holding the fury of a thousand tempests.",
+        "worth": 8800,
+        "hint_words": ["fury", "tempests", "crackling"]
+    },
+    {
+        "name": "Boots of the Windwalker",
+        "description": "Boots that seem weightless, as if crafted from clouds and morning mist.",
+        "worth": 7200,
+        "hint_words": ["weightless", "clouds", "crafted"]
+    },
+    {
+        "name": "Chalice of Stars",
+        "description": "A cup eternally filled with liquid starlight that never spills.",
+        "worth": 8500,
+        "hint_words": ["eternally", "starlight", "never spills"]
+    },
+    {
+        "name": "Tome of Forgotten Lore",
+        "description": "An ancient book whose pages change with each reading, holding infinite knowledge.",
+        "worth": 9200,
+        "hint_words": ["ancient", "infinite", "change"]
+    },
+    {
+        "name": "Gauntlets of the Titan",
+        "description": "Gauntlets radiating raw power, forged in an age long past.",
+        "worth": 8400,
+        "hint_words": ["radiating", "forged", "age long past"]
+    },
+    {
+        "name": "Cloak of Shadows",
+        "description": "A cloak that absorbs light itself, woven from the fabric of night.",
+        "worth": 7600,
+        "hint_words": ["absorbs", "woven", "fabric of night"]
+    },
+    {
+        "name": "Harp of the Sirens",
+        "description": "An instrument that plays haunting melodies on its own, enchanting all who hear.",
+        "worth": 7000,
+        "hint_words": ["haunting", "enchanting", "on its own"]
+    },
+    {
+        "name": "Compass of Destiny",
+        "description": "A compass pointing not to north, but to one's true path in life.",
+        "worth": 6900,
+        "hint_words": ["true path", "destiny", "not to north"]
+    },
+    {
+        "name": "Lantern of Souls",
+        "description": "A lantern with a flame that never dies, illuminating more than just darkness.",
+        "worth": 7400,
+        "hint_words": ["never dies", "illuminating", "more than"]
+    },
+    {
+        "name": "Mask of Many Faces",
+        "description": "A mask whose expression shifts and changes, reflecting infinite possibilities.",
+        "worth": 7100,
+        "hint_words": ["shifts", "infinite", "possibilities"]
+    },
+    {
+        "name": "Scepter of Command",
+        "description": "A scepter humming with unquestionable authority, obeyed by reality itself.",
+        "worth": 9800,
+        "hint_words": ["unquestionable", "authority", "reality itself"]
+    },
+    {
+        "name": "Hourglass of Eternity",
+        "description": "An hourglass where sand flows upward, defying the very laws of nature.",
+        "worth": 8600,
+        "hint_words": ["eternity", "defying", "upward"]
+    },
+    {
+        "name": "Locket of Memories",
+        "description": "A locket showing scenes from forgotten times, preserving moments lost to history.",
+        "worth": 6700,
+        "hint_words": ["forgotten", "preserving", "lost to history"]
+    },
+    {
+        "name": "Bracers of the Guardian",
+        "description": "Bracers inscribed with protective runes that glow with everlasting vigor.",
+        "worth": 7300,
+        "hint_words": ["everlasting", "protective", "runes"]
+    },
+    {
+        "name": "Pendant of the Moon",
+        "description": "A pendant glowing with pure lunar light, waxing and waning with celestial rhythm.",
+        "worth": 7700,
+        "hint_words": ["lunar", "celestial", "waxing and waning"]
+    },
+    {
+        "name": "Horn of Legends",
+        "description": "A horn that echoes with the calls of heroes from ages immemorial.",
+        "worth": 8100,
+        "hint_words": ["echoes", "heroes", "immemorial"]
+    },
+    {
+        "name": "Crystal of Pure Magic",
+        "description": "A crystal pulsing with raw arcane energy, untainted by mortal hands.",
+        "worth": 10000,
+        "hint_words": ["pulsing", "arcane", "untainted"]
+    }
+]
+
+
 class Item:
     """Represents an auction item."""
 
@@ -22,7 +177,34 @@ class Item:
         "relic": {"min_worth": 4000, "max_worth": 10000, "weight": 3}
     }
 
-    def __init__(self):
+    def __init__(self, available_unique_relics=None):
+        # Check if this should be a unique relic
+        self.is_unique_relic = False
+        self.relic_data = None
+        self.auction_name = None  # The obscured name shown during auction
+
+        # Small chance to generate a unique relic (if any are available)
+        if available_unique_relics and len(available_unique_relics) > 0:
+            # 5% chance per item to be a unique relic
+            if random.random() < 0.05:
+                self.is_unique_relic = True
+                self.relic_data = random.choice(available_unique_relics)
+                self.quality = "relic"
+                self.true_worth = self.relic_data["worth"]
+
+                # Generate obscured name for auction
+                self.auction_name = generate_item_name(self.quality)
+                self.name = self.relic_data["name"]  # True name revealed after winning
+
+                # Price is significantly undervalued for unique relics
+                self.base_price = random.randint(int(self.true_worth * 0.2), int(self.true_worth * 0.6))
+
+                # Generate flavor text with subtle hints
+                self.flavor_text = self._generate_relic_flavor()
+                self.winner = None
+                return
+
+        # Regular item generation
         # Randomly determine quality tier
         tiers = list(self.QUALITY_TIERS.keys())
         weights = [self.QUALITY_TIERS[t]["weight"] for t in tiers]
@@ -30,6 +212,7 @@ class Item:
 
         # Generate item properties
         self.name = generate_item_name(self.quality)
+        self.auction_name = self.name  # For regular items, auction name = real name
         tier_info = self.QUALITY_TIERS[self.quality]
         self.true_worth = random.randint(tier_info["min_worth"], tier_info["max_worth"])
 
@@ -50,6 +233,25 @@ class Item:
         self.flavor_text = generate_auction_flavor(self.name, self.quality)
         self.winner = None
 
+    def _generate_relic_flavor(self):
+        """Generate flavor text for unique relics with subtle hints."""
+        hint_words = self.relic_data["hint_words"]
+
+        templates = [
+            f"An extraordinary artifact, the auctioneer speaks of its {hint_words[0]} origins with reverence.",
+            f"The item seems to possess a {hint_words[1]} quality that defies explanation.",
+            f"Whispers among collectors suggest this piece is {hint_words[2]} in nature.",
+            f"The seller's hands tremble slightly - this {hint_words[0]} piece clearly means something special.",
+            f"Documents accompanying the item mention {hint_words[1]} properties, though details are scarce.",
+            f"A {hint_words[2]} aura surrounds this piece, making it stand out from common wares.",
+        ]
+
+        return random.choice(templates)
+
+    def get_display_name(self):
+        """Get the name to display during auction (obscured for unique relics)."""
+        return self.auction_name
+
     def get_profit(self, purchase_price):
         """Calculate profit if sold after winning."""
         return self.true_worth - purchase_price
@@ -62,6 +264,7 @@ class Participant:
         self.name = name
         self.gold = 10000
         self.items_won = []
+        self.relics_collected = []  # Unique relics are kept, not sold
         self.is_player = is_player
         self.active = True
         self.total_profit = 0
@@ -79,10 +282,17 @@ class Participant:
         self.gold -= price
         self.items_won.append(item)
         item.winner = self
-        # Automatically sell item
-        profit = item.get_profit(price)
-        self.gold += item.true_worth
-        self.total_profit += profit
+
+        # Check if this is a unique relic
+        if item.is_unique_relic:
+            # Keep the relic! Don't sell it.
+            self.relics_collected.append(item)
+            # No profit/loss calculation - it's priceless!
+        else:
+            # Automatically sell regular item
+            profit = item.get_profit(price)
+            self.gold += item.true_worth
+            self.total_profit += profit
 
     def is_eliminated(self):
         """Check if participant is out of the game."""
@@ -151,9 +361,9 @@ class NPC(Participant):
 class Auction:
     """Manages a single auction event."""
 
-    def __init__(self, auction_id):
+    def __init__(self, auction_id, available_relics=None):
         self.id = auction_id
-        self.item = Item()
+        self.item = Item(available_relics)
         self.participants = []
         self.winner = None
         self.final_price = 0
@@ -168,7 +378,7 @@ class Auction:
         print(f"AUCTION #{self.id}")
         print("="*70)
         print(f"\n{self.item.flavor_text}\n")
-        print(f"ITEM: {self.item.name}")
+        print(f"ITEM: {self.item.get_display_name()}")
         print(f"STARTING BID: {self.item.base_price} gold")
         print(f"\nParticipants: {', '.join([p.name for p in self.participants])}")
         print("\n" + "-"*70)
@@ -265,14 +475,32 @@ class Auction:
             self.winner = current_winner
             self.final_price = current_bid
 
-            profit = self.item.get_profit(current_bid)
-            print(f"\nItem's true worth: {self.item.true_worth} gold")
-            print(f"Profit/Loss: {'+' if profit > 0 else ''}{profit} gold")
+            # Check if this was a unique relic
+            if self.item.is_unique_relic:
+                print("\n" + "*"*70)
+                print("*** UNIQUE RELIC DISCOVERED! ***")
+                print("*"*70)
+                print(f"\nThe item's true identity is revealed:")
+                print(f">>> {self.item.name} <<<")
+                print(f"\n{self.item.relic_data['description']}")
+                print(f"\nThis legendary artifact is priceless and will be kept in your collection!")
+                print(f"Paid: {current_bid} gold")
+                print("\n" + "*"*70)
 
-            if profit > 0:
-                print(f"\n{current_winner.name} {get_npc_reaction('win')} - What a deal!")
+                # Remove this relic from available pool
+                if self.item.relic_data in game.available_relics:
+                    game.available_relics.remove(self.item.relic_data)
+                    print(f"\nUnique relics remaining in the world: {len(game.available_relics)}/25")
             else:
-                print(f"\n{current_winner.name} {get_npc_reaction('lose')} - Overpaid!")
+                # Regular item
+                profit = self.item.get_profit(current_bid)
+                print(f"\nItem's true worth: {self.item.true_worth} gold")
+                print(f"Profit/Loss: {'+' if profit > 0 else ''}{profit} gold")
+
+                if profit > 0:
+                    print(f"\n{current_winner.name} {get_npc_reaction('win')} - What a deal!")
+                else:
+                    print(f"\n{current_winner.name} {get_npc_reaction('lose')} - Overpaid!")
 
             if not current_winner.is_player:
                 print(f"{current_winner.name}'s gold: {current_winner.gold}")
@@ -287,10 +515,12 @@ class Auction:
         print("\n" + "-"*70)
         print("ITEM DETAILS")
         print("-"*70)
-        print(f"Name: {self.item.name}")
+        print(f"Name: {self.item.get_display_name()}")
         print(f"Starting Price: {self.item.base_price} gold")
         print(f"\n{self.item.flavor_text}")
         print("\nNote: True worth unknown until after purchase!")
+        if self.item.is_unique_relic:
+            print("\n[Something feels different about this item...]")
         print("-"*70)
 
 
@@ -304,6 +534,8 @@ class Game:
         self.auctions_per_day = 3
         self.game_over = False
         self.max_days = 30
+        # Track available unique relics (copy of the list so we can remove as found)
+        self.available_relics = UNIQUE_RELICS.copy()
 
     def setup(self):
         """Initialize the game."""
@@ -314,7 +546,10 @@ class Game:
         print("Each day, choose which auction to enter and bid wisely.")
         print("Items have hidden true values - find the relics and avoid the junk!")
         print("\nStarting gold: 10,000")
-        print("Survive and profit to win!")
+        print("\n*** NEW: 25 UNIQUE RELICS are hidden in the world! ***")
+        print("Find them and keep them in your collection forever!")
+        print("Look for subtle hints in item descriptions...")
+        print("\nSurvive and profit to win!")
         print("="*70)
 
         player_name = input("\nEnter your name: ").strip()
@@ -352,8 +587,8 @@ class Game:
         # Prep session
         self.prep_session()
 
-        # Generate auctions
-        auctions = [Auction(i+1) for i in range(self.auctions_per_day)]
+        # Generate auctions (pass available relics)
+        auctions = [Auction(i+1, self.available_relics) for i in range(self.auctions_per_day)]
 
         # Player chooses auction
         chosen_auction = self.choose_auction(auctions)
@@ -383,6 +618,16 @@ class Game:
     def prep_session(self):
         """Show prep session information."""
         print("\n--- PREP SESSION ---\n")
+
+        # Show player's relic collection if they have any
+        if len(self.player.relics_collected) > 0:
+            print("YOUR RELIC COLLECTION:")
+            for relic in self.player.relics_collected:
+                print(f"  * {relic.name}")
+            print(f"\nRelics collected: {len(self.player.relics_collected)}/25")
+            print(f"Relics remaining in the world: {len(self.available_relics)}/25")
+            print()
+
         print("Standing:")
 
         all_participants = [self.player] + self.npcs
@@ -393,6 +638,8 @@ class Game:
             eliminated = "(ELIMINATED)" if p.is_eliminated() else ""
             print(f"{i}. {p.name} {status} {eliminated}")
             print(f"   Gold: {p.gold} | Items won: {len(p.items_won)} | Total profit: {p.total_profit}")
+            if len(p.relics_collected) > 0:
+                print(f"   Relics: {len(p.relics_collected)}")
 
         print()
 
@@ -403,7 +650,7 @@ class Game:
 
         for auction in auctions:
             print(f"Auction #{auction.id}")
-            print(f"  Item: {auction.item.name}")
+            print(f"  Item: {auction.item.get_display_name()}")
             print(f"  Starting bid: {auction.item.base_price} gold")
             print(f"  Preview: {auction.item.flavor_text[:100]}...")
             print()
@@ -453,6 +700,7 @@ class Game:
         print(f"Gold: {self.player.gold}")
         print(f"Items won today: {len([i for i in self.player.items_won if i.winner == self.player])}")
         print(f"Total profit: {self.player.total_profit}")
+        print(f"Relics collected: {len(self.player.relics_collected)}/25")
 
         # Check eliminations
         eliminated = [npc for npc in self.npcs if npc.is_eliminated() and npc.active]
@@ -495,12 +743,24 @@ class Game:
             print(f"   Final gold: {p.gold}")
             print(f"   Items won: {len(p.items_won)}")
             print(f"   Total profit: {p.total_profit}")
+            print(f"   Relics collected: {len(p.relics_collected)}")
             print()
 
         if all_participants[0].is_player:
-            print("🎉 VICTORY! You are the greatest auctioneer! 🎉")
+            print("VICTORY! You are the greatest auctioneer!")
         else:
             print(f"Defeated! {all_participants[0].name} wins!")
+
+        # Show player's final relic collection
+        if len(self.player.relics_collected) > 0:
+            print("\n" + "="*70)
+            print("YOUR LEGENDARY RELIC COLLECTION:")
+            print("="*70)
+            for relic in self.player.relics_collected:
+                print(f"\n* {relic.name}")
+                print(f"  {relic.relic_data['description']}")
+            print("\n" + "="*70)
+            print(f"Total relics collected: {len(self.player.relics_collected)}/25")
 
         print("\n" + "="*70)
 
